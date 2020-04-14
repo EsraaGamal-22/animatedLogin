@@ -1,0 +1,244 @@
+*
+{
+    padding:0px;
+    margin: 0px;
+    /*Width and height apply to all parts of the element: content, padding and borders*/
+    box-sizing: border-box;
+}
+body
+{
+    font-family: 'Poppins', sans-serif;
+}
+.wave
+{
+    /*An element with position: fixed---> is positioned relative to the viewport,
+     which means it always stays in the same place even if the page is scrolled. The top, right, bottom, 
+    and left properties are used to position the element.*/
+    position: fixed;
+    height: 100%; /* % -->Defines the height in percent of the containing block */
+    left:0;
+    bottom: 0;
+    /* z-index--> using it if you want to change the stacking order of these elements.
+     An element with a higher z-index will be displayed in front of an element with a lower z-index. 
+    One thing to note is that z-index only works with positioned elements.*/
+    z-index: -1;
+}
+.container
+{
+    /* vw --> used to fill viewport backgrounds for horizontally-scrolling sites.*/
+    width: 100vw;
+    /*  vh --> used to fill the background of the viewport, aka the browser window.*/
+    height:100vh;
+    /* grid --> Like tables, grid layout enables an author to align elements into columns and rows. */
+    display: grid;
+    /*repeat(number of columns/rows, the column width we want).
+      Fr is a fractional unit and 1fr is for 1 part of the available space.*/
+    grid-template-columns: repeat(2,1fr);
+    /* grid-gap --> defines the size of the gap between the rows and columns in a grid layout.
+        grid-gap: grid-row-gap grid-column-gap*/
+    grid-gap: 96px; /* row-gap &column-gap are set to be 96px */
+    padding:0 32px;
+}
+.img{
+    /*flex -->was designed as a one-dimensional layout model (column or row "default:row from left to right")*/
+    display:flex;
+    /*justify-content property aligns the flexible container's items when 
+    the items do not use all available space on the main-axis (horizontally).*/
+    justify-content: flex-end;/*flex-end: items are packed toward the end of the flex-direction.*/
+    /*Use the align-items property to align the items vertically.*/
+    align-items: center;
+
+}
+.img img{
+    width:500px;
+}
+.login-container
+{
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+form{
+    width:360px;
+}
+.avatar
+{
+    width:100px;
+}
+form h2
+{
+    font-size:46.4px;
+    text-transform: uppercase;
+    margin: 15px 0;
+    color:#333;
+}
+.input-div
+{
+    display:grid;
+    /*grid-template-columns -->specifies the number (and the widths) of columns in a grid layout.*/
+    grid-template-columns:7% 93% ; /* 2 columns with width 7% and 93% */
+    margin: 25px 0;
+    padding:5px 0x;
+    border-bottom: 2px solid #d9d9d9;
+    position: relative;
+}
+.input-div::after ,.input-div::before{
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    width:0;
+    height: 2px;
+    background-color:#38d39f ;
+    transition: .3s;
+}
+.input-div::after
+{
+right: 50%;
+}
+.input-div::before{
+left:50%;
+}
+.input-div.focus .i i{
+    color:#38d39f;
+}
+.input-div.focus div h5{
+   /* top:-5px ; /* error herrre not pop up up when pres on input(15:19 in video) */
+    font-size: 15px;
+    margin-top: -5px; /* resolving it here*/
+}
+.input-div.focus::after ,.input-div.focus::before
+{
+    width:50%;
+}
+.input-div.one{
+margin-top: 0;
+}
+.input-div.two
+{
+    margin-bottom: 4px;
+}
+.i{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+}
+.i i{
+    margin-top: 15px;
+    color:#d9d9d9 ;
+    transition: .3s;
+}
+.input-div >div{
+    /*position: relative;--> is positioned relative to its normal position.*/
+    position: relative;
+    height:45px;
+}
+.input-div div h5{
+    /*position: absolute --> is positioned relative to the nearest positioned ancestor 
+    (instead of positioned relative to the viewport, like fixed).
+     if an absolute positioned element has no positioned ancestors, 
+     it uses the document body, and moves along with page scrolling.*/
+    position:absloute !important;
+    left:10px;
+    top:15px;
+    /*transform ---> allow you to move, rotate, scale, and skew elements.
+    translate(xvalue,yvalue)--> One value will move the element to the right (negative values to the left). 
+    If a second value is provided, that second value will move it down (negative values up). 
+    Or, you can get specific:translateY() or translateX().*/
+    transform: translateY(-50%);
+    color:#999;
+    font-size: 18px;
+    /*transition: <property> <duration> <timing-function> <delay>
+    CSS transitions--> allows you to change property values smoothly, over a given duration.*/
+    transition: .3s;
+    margin-top: 20px;
+}
+
+.input
+{
+    position: absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    border:none;
+    outline: none;
+    background: none;
+    padding:8px 11.2px;
+    font-size: 19.2px;
+    color:#555;
+    font-family: 'Poppins', sans-serif;
+
+}
+a{
+    /*A block-level element always starts on a new line and takes up the full width available
+     (stretches out to the left and right as far as it can).*/
+    display: block;
+    text-align: right;
+    text-decoration: none;
+    color:#999;
+    font-size: 14.4px;
+    transition: .3s;
+}
+a:hover{
+    color:#38d39f;
+
+}
+.btn{
+    display: block;
+    width:100%;
+    height:50px;
+    border-radius: 25px;
+    margin: 16px 0;
+    font-size: 19.2px;
+    outline: none;
+    border: none;
+    /*CSS gradients let you display smooth transitions between two or more specified colors.
+    linear-gradient(direction, color-stop1, color-stop2, ...);*/
+    background: linear-gradient(to right,#32be8f,#38d39f,#32be8f);/* starts from the left to right.*/
+    cursor: pointer;
+    color: #fff;
+    font-family:'Poppins', sans-serif;
+    background-size: 200%;
+    transition: .5s;
+    text-transform: uppercase;
+}
+.btn:hover{
+    background-position: right;
+}
+/*The @media rule--> is used in media queries to apply different styles for different media types/devices.
+Change the grid-gap of the container class to 5rem when the browser window is 1050px wide or less:*/
+@media screen and (max-width: 1050px){
+.container{
+    grid-gap: 5rem;
+}
+}
+@media screen and (max-width: 1000px){
+    form{
+        width:290px;
+    }
+    form h2{
+    font-size: 2.4rem;
+    margin: 8px 0;
+    }
+    .img img{
+        width:400px;
+    }
+}
+@media screen and (max-width: 900px){
+    .img{
+        display: none;
+    }
+    .container{
+        /*only 1 column with width 1fr*/
+        grid-template-columns: 1fr;
+
+    }
+    .wave{
+        display: none;
+    }
+    .login-container{
+        justify-content: center;
+    }
+
+}
